@@ -1,0 +1,54 @@
+{
+  "name": "dot-gl",
+  "version": "0.0.1",
+  "description": "An Interactive React Map Library with Redux.",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scarecrow-11/dot-gl.git"
+  },
+  "keywords": [
+    "dot-gl",
+    "map",
+    "map-gl",
+    "redux"
+  ],
+  "author": "Hafizur Milon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scarecrow-11/dot-gl/issues"
+  },
+  "homepage": "https://github.com/scarecrow-11/dot-gl#readme",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "dependencies": {
+    "@deck.gl/react": "^8.6.5",
+    "react-map-gl": "^5.3.18"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/plugin-transform-runtime": "^7.16.8",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/runtime": "^7.16.7",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "babel-loader": "^8.2.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "rollup": "^2.64.0",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}

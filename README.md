@@ -1,2 +1,2 @@
 # dot-gl
-An Interactive React Map Library with Redux.
+An Interactive React Map Library with Redux. (In Development)

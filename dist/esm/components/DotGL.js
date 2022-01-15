@@ -1,0 +1,1 @@
+import e from"react";class t extends e.PureComponent{render(){return e.createElement("div",null,"Dot GL Interactive React Map Component Library With Redux (In Development)")}}const n=t;export{n as DotGL};
