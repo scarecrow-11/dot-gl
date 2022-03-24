@@ -1,0 +1,1 @@
+import{createSlice as t}from"@reduxjs/toolkit";const a=t({name:"mapState",initialState:{longitude:0,latitude:0,zoom:13,pitch:0,bearing:0},reducers:{updateMapState:(t,a)=>{t={...t,...a.payload}}}}),{updateMapState:e}=a.actions,o=a.reducer;export{o as mapStateReducer,e as updateMapState};

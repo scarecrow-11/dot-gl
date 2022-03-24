@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});const e=require("@reduxjs/toolkit").createSlice({name:"mapState",initialState:{longitude:0,latitude:0,zoom:13,pitch:0,bearing:0},reducers:{updateMapState:(e,t)=>{e={...e,...t.payload}}}}),{updateMapState:t}=e.actions,a=e.reducer;exports.mapStateReducer=a,exports.updateMapState=t;
