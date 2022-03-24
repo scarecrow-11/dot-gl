@@ -1,0 +1,1 @@
+export { updateMapState } from '../reducers/mapStateReducer'

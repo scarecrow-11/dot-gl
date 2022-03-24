@@ -1,0 +1,1 @@
+export { dotGlReducer } from './rootReducer'
