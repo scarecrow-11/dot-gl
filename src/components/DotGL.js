@@ -1,17 +1,29 @@
 import React from 'react'
 const PropTypes = require('prop-types')
 import { connect } from 'react-redux'
+
+// Import Components
 import { StaticMap } from 'react-map-gl'
 import { DeckGL } from '@deck.gl/react'
 
+// Import Actions & Methods
+import { updateMapState } from '../actions'
+
 class _DotGL extends React.PureComponent {
+  // On View State Change
+  _onViewStateChange = ({ viewState }) => {
+    const { dispatch } = this.props
+    dispatch( updateMapState(viewState) )
+  }
+
   render() {
     const { mapStyle, mapState } = this.props
 
     return (
       <DeckGL
-        initialViewState={ mapState }
+        viewState={ mapState }
         controller={ true }
+        onViewStateChange={ this._onViewStateChange }
       >
         <StaticMap
           mapStyle={ mapStyle }
@@ -31,7 +43,8 @@ _DotGL.propTypes = {
     zoom: PropTypes.number,
     pitch: PropTypes.number,
     bearing: PropTypes.number
-  })
+  }),
+  dispatch: PropTypes.func
 }
 
 _DotGL.defaultProps = {
@@ -40,14 +53,17 @@ _DotGL.defaultProps = {
   mapState: {
     longitude: 0,
     latitude: 0,
-    zoom: 13,
+    zoom: 10,
     pitch: 0,
     bearing: 0
-  }
+  },
+  dispatch: () => null
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  mapState: ownProps?.getRootState(state)?.mapState ?? {}
+  mapState: ownProps?.getRootState ? ownProps.getRootState(state)?.mapState ?? {} : {}
 })
 
-export const DotGL = connect(mapStateToProps)(_DotGL)
+const mapDispatchToProps = dispatch => ({ dispatch })
+
+export const DotGL = connect(mapStateToProps, mapDispatchToProps)(_DotGL)
