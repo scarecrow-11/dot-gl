@@ -13,7 +13,11 @@ const mapStateSlice = createSlice({
   initialState,
   reducers: {
     updateMapState: (state, action) => {
-      state = { ...state, ...action.payload }
+      state.longitude = action.payload?.longitude ?? state.longitude
+      state.latitude = action.payload?.latitude ?? state.latitude
+      state.zoom = action.payload?.zoom ?? state.zoom
+      state.pitch = action.payload?.pitch ?? state.pitch
+      state.bearing = action.payload?.bearing ?? state.bearing
     }
   }
 })
