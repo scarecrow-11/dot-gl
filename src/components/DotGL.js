@@ -11,9 +11,16 @@ import { updateMapState } from '../actions'
 
 class _DotGL extends React.PureComponent {
   // On View State Change
-  _onViewStateChange = ({ viewState }) => {
+  _onViewStateChange = ({ viewState, oldViewState }) => {
     const { dispatch } = this.props
-    dispatch( updateMapState(viewState) )
+    const newViewState = {
+      longitude: viewState?.longitude ?? oldViewState?.longitude ?? 0,
+      latitude: viewState?.latitude ?? oldViewState?.latitude ?? 0,
+      zoom: viewState?.zoom ?? oldViewState?.zoom ?? 0,
+      pitch: viewState?.pitch ?? oldViewState?.pitch ?? 0,
+      bearing: viewState?.bearing ?? oldViewState?.bearing ?? 0
+    }
+    dispatch( updateMapState(newViewState) )
   }
 
   render() {
@@ -36,7 +43,7 @@ class _DotGL extends React.PureComponent {
 // Prop Types
 _DotGL.propTypes = {
   mapStyle: PropTypes.oneOfType([ PropTypes.string, PropTypes.object ]),
-  getRootState: PropTypes.func,
+  getRootState: PropTypes.func.isRequired,
   mapState: PropTypes.shape({
     longitude: PropTypes.number,
     latitude: PropTypes.number,
@@ -61,7 +68,7 @@ _DotGL.defaultProps = {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  mapState: ownProps?.getRootState ? ownProps.getRootState(state)?.mapState ?? {} : {}
+  mapState: ownProps.getRootState(state)?.mapState ?? {}
 })
 
 const mapDispatchToProps = dispatch => ({ dispatch })
