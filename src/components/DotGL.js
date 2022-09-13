@@ -24,7 +24,7 @@ class _DotGL extends React.PureComponent {
   }
 
   render() {
-    const { mapStyle, mapState } = this.props
+    const { mapState, mapStyle } = this.props
 
     return (
       <DeckGL
@@ -33,7 +33,7 @@ class _DotGL extends React.PureComponent {
         onViewStateChange={ this._onViewStateChange }
       >
         <StaticMap
-          mapStyle={ mapStyle }
+          mapStyle={ mapStyle?.styleUrl ?? '' }
         />
       </DeckGL>
     )
@@ -42,8 +42,6 @@ class _DotGL extends React.PureComponent {
 
 // Prop Types
 _DotGL.propTypes = {
-  mapStyle: PropTypes.oneOfType([ PropTypes.string, PropTypes.object ]),
-  getRootState: PropTypes.func.isRequired,
   mapState: PropTypes.shape({
     longitude: PropTypes.number,
     latitude: PropTypes.number,
@@ -51,12 +49,14 @@ _DotGL.propTypes = {
     pitch: PropTypes.number,
     bearing: PropTypes.number
   }),
+  mapStyle: PropTypes.shape({
+    styleUrl: PropTypes.string
+  }),
+  getRootState: PropTypes.func.isRequired,
   dispatch: PropTypes.func
 }
 
 _DotGL.defaultProps = {
-  mapStyle: 'https://demotiles.maplibre.org/style.json',
-  getRootState: state => state?.dotGl ?? {},
   mapState: {
     longitude: 0,
     latitude: 0,
@@ -64,11 +64,16 @@ _DotGL.defaultProps = {
     pitch: 0,
     bearing: 0
   },
+  mapStyle: {
+    styleUrl: 'https://demotiles.maplibre.org/style.json'
+  },
+  getRootState: state => state?.dotGl ?? {},
   dispatch: () => null
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  mapState: ownProps.getRootState(state)?.mapState ?? {}
+  mapState: ownProps.getRootState(state)?.mapState ?? {},
+  mapStyle: ownProps.getRootState(state)?.mapStyle ?? {}
 })
 
 const mapDispatchToProps = dispatch => ({ dispatch })
