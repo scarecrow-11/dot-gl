@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});const e=require("@reduxjs/toolkit").createSlice({name:"mapStyle",initialState:{styleUrl:"https://demotiles.maplibre.org/style.json"},reducers:{updateMapStyle:(e,t)=>{e.styleUrl=t.payload?.styleUrl??e.styleUrl}}}),{updateMapStyle:t}=e.actions,l=e.reducer;exports.mapStyleReducer=l,exports.updateMapStyle=t;

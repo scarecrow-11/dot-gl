@@ -1,1 +1,1 @@
-import{combineReducers as t}from"@reduxjs/toolkit";import{mapStateReducer as o}from"./mapStateReducer.js";const r=t({mapState:o});export{r as dotGlReducer};
+import{combineReducers as t}from"@reduxjs/toolkit";import{mapStateReducer as e}from"./mapStateReducer.js";import{mapStyleReducer as m}from"./mapStyleReducer.js";const o=t({mapState:e,mapStyle:m});export{o as dotGlReducer};

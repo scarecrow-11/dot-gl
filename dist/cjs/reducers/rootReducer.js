@@ -1,1 +1,1 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var e=require("@reduxjs/toolkit"),t=require("./mapStateReducer.js");const r=e.combineReducers({mapState:t.mapStateReducer});exports.dotGlReducer=r;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var e=require("@reduxjs/toolkit"),r=require("./mapStateReducer.js"),t=require("./mapStyleReducer.js");const u=e.combineReducers({mapState:r.mapStateReducer,mapStyle:t.mapStyleReducer});exports.dotGlReducer=u;

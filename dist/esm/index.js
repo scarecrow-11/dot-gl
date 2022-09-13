@@ -1,1 +1,1 @@
-export{DotGL}from"./components/DotGL.js";export{dotGlReducer}from"./reducers/rootReducer.js";export{updateMapState}from"./reducers/mapStateReducer.js";
+export{DotGL}from"./components/DotGL.js";export{dotGlReducer}from"./reducers/rootReducer.js";export{updateMapState}from"./reducers/mapStateReducer.js";export{updateMapStyle}from"./reducers/mapStyleReducer.js";

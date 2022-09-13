@@ -1,0 +1,1 @@
+import{createSlice as t}from"@reduxjs/toolkit";const e=t({name:"mapStyle",initialState:{styleUrl:"https://demotiles.maplibre.org/style.json"},reducers:{updateMapStyle:(t,e)=>{t.styleUrl=e.payload?.styleUrl??t.styleUrl}}}),{updateMapStyle:l}=e.actions,r=e.reducer;export{r as mapStyleReducer,l as updateMapStyle};
